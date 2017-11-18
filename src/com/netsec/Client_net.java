@@ -1,6 +1,6 @@
 package com.netsec;
 
-// Fig. 27.7: Client.java
+// Fig. 27.7: Client.java4
 // Client portion of a stream-socket connection between client and server.
 import java.io.EOFException;
 import java.io.IOException;
