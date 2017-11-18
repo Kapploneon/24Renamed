@@ -1,6 +1,6 @@
 package com.netsec;
 // Fig. 27.8: ClientTest.java
-// Class that tests the Client.
+// Class that tests the Client
 import javax.swing.JFrame;
 
 public class ClientTest_net
