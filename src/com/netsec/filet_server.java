@@ -4,10 +4,12 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Server_filet {
+public class filet_server {
     public static void main(String[] args) throws IOException {
+
         ServerSocket serverSocket = null;
 
+        // Creating Server Socket.
         try {
             serverSocket = new ServerSocket(4444);
         } catch (IOException ex) {
@@ -18,18 +20,21 @@ public class Server_filet {
         InputStream in = null;
         OutputStream out = null;
 
+        // Waiting for the client Connection...
         try {
             socket = serverSocket.accept();
         } catch (IOException ex) {
             System.out.println("Can't accept client connection. ");
         }
 
+        // Input Stream
         try {
             in = socket.getInputStream();
         } catch (IOException ex) {
             System.out.println("Can't get socket input stream. ");
         }
 
+        // Output Stream
         try {
             out = new FileOutputStream("M:\\test2.xml");
         } catch (FileNotFoundException ex) {
