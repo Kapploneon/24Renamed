@@ -12,6 +12,7 @@ class TCPServer {
             Socket connectionSocket = null;
             BufferedOutputStream outToClient = null;
 
+            // Create ServerSocket and wait for the client.
             try {
                 welcomeSocket = new ServerSocket(3248);
                 connectionSocket = welcomeSocket.accept();
@@ -19,6 +20,7 @@ class TCPServer {
             } catch (IOException ex) {
                 // Do exception handling
             }
+
 
             if (outToClient != null) {
                 File myFile = new File("C:\\testserver.pdf");
