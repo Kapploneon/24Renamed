@@ -11,8 +11,8 @@ public class filet_client {
         // Socket declaration.
         socket = new Socket(host, 4444);
 
-        File ServerCertFile = new File("server-certificate.crt");
-        String ServerCert;
+//        File ServerCertFile = new File("server-certificate.crt");
+//        String ServerCert;
 
 
         File file = new File("testingtransferubunt");
