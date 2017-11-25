@@ -36,7 +36,7 @@ public class filet_server {
 
         // Output Stream
         try {
-            out = new FileOutputStream("M:\\test2.xml");
+            out = new FileOutputStream("new.txt");
         } catch (FileNotFoundException ex) {
             System.out.println("File not found. ");
         }
