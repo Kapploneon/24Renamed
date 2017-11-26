@@ -63,16 +63,17 @@ class LoadKey {
 
         cert = cert.replace("-----BEGIN CERTIFICATE-----\n", "");
         cert = cert.replace("-----END CERTIFICATE-----\n", "");
+        System.out.println(cert);
+
         String OriginalPlainText = "My name is Karan.";
         byte[] plainText = OriginalPlainText.getBytes("UTF8");
-        System.out.println(cert);
+
 
         byte[] encodedCert = cert.getBytes("UTF-8");
         byte[] decodedCert = Base64.decodeBase64(encodedCert);
         CertificateFactory certFactory = CertificateFactory.getInstance("X.509");
         InputStream in = new ByteArrayInputStream(decodedCert);
         X509Certificate certificate = (X509Certificate)certFactory.generateCertificate(in);
-
 
         System.out.println("Subject DN : " + certificate.getSubjectDN().getName());
         System.out.println("Issuer : " + certificate.getIssuerDN().getName());
