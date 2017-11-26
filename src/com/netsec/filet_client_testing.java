@@ -61,12 +61,18 @@ public class filet_client_testing {
 
                 System.out.println("\nStart encryption");
                 cipher.init(Cipher.ENCRYPT_MODE, publicKey);
-                byte[] cipherText = cipher.doFinal(plainText);
+                byte[] cipherText = new byte[256];
+                cipherText = cipher.doFinal(plainText);
+
 //                bytes = cipher.doFinal(plainText);
                 System.out.println("Finish encryption: ");
 
                 // Sending the Session key to the server.
                 try {
+                    String preText = "NextKey";
+                    byte[] preBytes = new byte[16*1024];
+                    preBytes = preText.getBytes();
+                    out.write(preBytes, 0, preBytes.length);
                     out.write(cipherText, 0, cipherText.length);
                 }
                 catch (IOException ex) {
@@ -98,13 +104,46 @@ public class filet_client_testing {
         // Input Stream.
         InputStream in = new FileInputStream(file);
 
-        while ((count = in.read(bytes)) > 0) {
-            out.write(bytes, 0, count);
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+        objectOutputStream.flush();
+        ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
+
+        String getSerReply = (String) objectInputStream.readObject();
+        System.out.println(getSerReply);
+
+        System.out.println("Enter your response below: ");
+        Scanner inputKey = new Scanner(System.in);
+        int sessionKey = inputKey.nextInt();
+        Boolean repPro = false;
+
+        while(!repPro){
+
+            if(sessionKey < 1 || sessionKey > 3){
+                System.out.println("Invalid response. Please select one of the following");
+                System.out.println(getSerReply);
+                System.out.println("Enter your correct response below: ");
+                sessionKey = inputKey.nextInt();
+            }
+            else{
+                repPro = true;
+            }
         }
+
+        objectOutputStream.writeObject(sessionKey);
+
+        if (sessionKey == 1){
+
+            while ((count = in.read(bytes)) > 0) {
+                out.write(bytes, 0, count);
+            }
+
+        }
+
 
         // Closing the streams and socket.
         out.close();
         in.close();
         socket.close();
+
     }
 }
