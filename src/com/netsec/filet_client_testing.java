@@ -1,8 +1,12 @@
 package com.netsec;
 
+import com.java24hours.FileDemonstration;
+import oracle.jrockit.jfr.JFR;
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.crypto.Cipher;
+import javax.swing.*;
 import java.io.*;
 import java.net.Socket;
 import java.nio.charset.Charset;
@@ -27,6 +31,11 @@ public class filet_client_testing {
         String host = "192.168.0.8";
         byte[] bytes = new byte[16 * 1024];
         int count;
+        String sessionKey;
+        byte[] sessionKeyBytes = new byte[16 * 1024];
+        byte[] cipherText = new byte[256];
+        Scanner inputKey = new Scanner(System.in);
+        int optionSelected;
 
         // Socket declaration.
         socket = new Socket(host, 4444);
@@ -54,17 +63,13 @@ public class filet_client_testing {
                 Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
 
                 // create a Scanner to obtain session key from the command window
-                Scanner inputKey = new Scanner(System.in);
                 System.out.print("Enter session key: "); // prompt
-                String sessionKey = "Key:" + inputKey.nextLine() + "appendingExtra";
-                byte[] plainText = sessionKey.getBytes("UTF8");
+                sessionKey = "Key:" + inputKey.nextLine() + "appendingExtra";
+                sessionKeyBytes = sessionKey.getBytes("UTF8");
 
                 System.out.println("\nStart encryption");
                 cipher.init(Cipher.ENCRYPT_MODE, publicKey);
-                byte[] cipherText = new byte[256];
-                cipherText = cipher.doFinal(plainText);
-
-//                bytes = cipher.doFinal(plainText);
+                cipherText = cipher.doFinal(sessionKeyBytes);
                 System.out.println("Finish encryption: ");
 
                 // Sending the Session key to the server.
@@ -78,15 +83,14 @@ public class filet_client_testing {
                 catch (IOException ex) {
                     System.out.println("Can't get socket input stream. ");
                 }
-//                out.write(bytes, 0, bytes.length);
                 out.flush();
 
                 estSession= true;
 
             } else {
                 // Get the file from the server.
-                String OriginalPlainText = "Who are you?";
-                bytes = OriginalPlainText.getBytes("UTF8");
+                String OriginalsessionKeyBytes = "Who are you?";
+                bytes = OriginalsessionKeyBytes.getBytes("UTF8");
 
                 out.write(bytes,0,bytes.length);
                 out.flush();
@@ -97,13 +101,6 @@ public class filet_client_testing {
             }
         }
 
-        File file = new File("testingtransferubunt");
-        // Get the size of the file
-        long length = file.length();
-
-        // Input Stream.
-        InputStream in = new FileInputStream(file);
-
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
         objectOutputStream.flush();
         ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
@@ -112,37 +109,108 @@ public class filet_client_testing {
         System.out.println(getSerReply);
 
         System.out.println("Enter your response below: ");
-        Scanner inputKey = new Scanner(System.in);
-        int sessionKey = inputKey.nextInt();
+
+        optionSelected = inputKey.nextInt();
+
         Boolean repPro = false;
 
         while(!repPro){
 
-            if(sessionKey < 1 || sessionKey > 3){
+            if(optionSelected < 1 || optionSelected > 3){
                 System.out.println("Invalid response. Please select one of the following");
                 System.out.println(getSerReply);
                 System.out.println("Enter your correct response below: ");
-                sessionKey = inputKey.nextInt();
+                optionSelected = inputKey.nextInt();
             }
             else{
                 repPro = true;
             }
         }
 
-        objectOutputStream.writeObject(sessionKey);
+        objectOutputStream.writeObject(optionSelected);
 
-        if (sessionKey == 1){
+        if (optionSelected == 1){
 
-            while ((count = in.read(bytes)) > 0) {
-                out.write(bytes, 0, count);
+            FileDemonstration application = new FileDemonstration();
+            application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+            File name = application.getFileOrDirectory();
+
+            if ( name.exists() && name.isFile() ) // if name exists, upload that file to the server.
+            {
+                objectOutputStream.writeObject(name.getName());
+
+                File file = new File(name.getPath());
+                
+                SHA1_new sha1 = new SHA1_new();
+                
+                // Input Stream.
+                InputStream in = new FileInputStream(file);
+
+                String sessionKeyString = sha1.filet_sha1(sessionKeyBytes);
+                StringXORer xoRer = new StringXORer();
+                String xorResult;
+
+                while ((count = in.read(bytes)) > 0) {
+
+                    System.out.println(new String (bytes));
+
+                    xorResult = xoRer.encode(new String(bytes),sessionKeyString);
+                    bytes = xorResult.getBytes();
+
+                    System.out.println(xorResult);
+                    System.out.println(new String (bytes));
+
+                    out.write(bytes, 0, bytes.length);
+
+                    // Compute new sessionKeyBytes.
+                    sessionKeyBytes = sessionKeyString.getBytes();
+                    sessionKeyString = sha1.filet_sha1(sessionKeyBytes);
+
+                }
+                in.close();
+            }
+        }
+        else if (optionSelected == 2){
+
+            System.out.println("Enter the file name below:");
+            String filename = inputKey.nextLine();
+
+            objectOutputStream.writeObject(filename);
+
+
+        }
+        else if (optionSelected == 3){
+
+            FileDemonstration application = new FileDemonstration();
+            application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+            File name = application.getFileOrDirectory();
+
+            if ( name.exists() && name.isFile() ) // if name exists, upload that file to the server.
+            {
+                objectOutputStream.writeObject(name.getName());
+
+                File file = new File(name.getPath());
+
+                // Input Stream.
+                InputStream in = new FileInputStream(file);
+
+                int x = 0;
+                while ((count = in.read(bytes)) > 0) {
+                    out.write(bytes, 0, count);
+                    System.out.println(String.valueOf(x));
+                    x++;
+                }
+
+                in.close();
             }
 
         }
 
-
         // Closing the streams and socket.
         out.close();
-        in.close();
+//        in.close();
         socket.close();
 
     }
