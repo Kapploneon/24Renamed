@@ -119,7 +119,7 @@ public class filet_server {
                 System.out.println("File not found. ");
             }
 
-            SHA1 sha1 = new SHA1("do nothing");
+            SHA1_new sha1 = new SHA1_new();
 
             sessionKeyBytes = sessionKeyString.getBytes();
             sessionKeyString = sha1.filet_sha1(sessionKeyBytes);
@@ -150,7 +150,35 @@ public class filet_server {
             if ( name.exists() && name.isFile() )
             {
                 File file = new File(name.getName());
-//                SHA1_new
+                SHA1_new sha1 = new SHA1_new();
+
+                // Input Stream.
+                InputStream inp = new FileInputStream(file);
+
+                sessionKeyBytes = sessionKeyString.getBytes();
+                sessionKeyString = sha1.filet_sha1(sessionKeyBytes);
+                StringXORer xoRer = new StringXORer();
+                String xorResult;
+
+                while ((count = inp.read(bytes)) > 0 ){
+
+                    System.out.println(new String (bytes));
+
+                    xorResult = xoRer.encode(new String(bytes),sessionKeyString);
+                    bytes = xorResult.getBytes();
+
+                    System.out.println(xorResult);
+                    System.out.println(new String (bytes));
+
+                    out.write(bytes, 0, bytes.length);
+
+                    // Compute new sessionKeyBytes.
+                    sessionKeyBytes = sessionKeyString.getBytes();
+                    sessionKeyString = sha1.filet_sha1(sessionKeyBytes);
+
+                }
+
+
             }
 
         }
