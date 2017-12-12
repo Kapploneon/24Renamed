@@ -37,7 +37,7 @@ public class FileDemonstration extends JFrame
     } // end FileDemonstration constructor
 
     // allow user to specify file or directory name
-    private File getFileOrDirectory()
+    public File getFileOrDirectory()
     {
         // display file dialog, so user can choose file or directory to open
         JFileChooser fileChooser = new JFileChooser();

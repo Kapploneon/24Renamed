@@ -178,7 +178,6 @@ public class filet_client_testing {
 
             objectOutputStream.writeObject(filename);
 
-
         }
         else if (optionSelected == 3){
 
