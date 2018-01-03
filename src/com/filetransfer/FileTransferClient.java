@@ -387,7 +387,8 @@ public class FileTransferClient {
 	 * @throws IllegalBlockSizeException
 	 * @throws NoSuchAlgorithmException
 	 */
-	private static void authenticateServer() throws IOException, CertificateException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException {
+	private static void authenticateServer()
+			throws IOException, CertificateException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException {
 		// Send the authentication request.
 		System.out.println("Sending Authenticating request...");
 		OutputStream out = socket.getOutputStream();

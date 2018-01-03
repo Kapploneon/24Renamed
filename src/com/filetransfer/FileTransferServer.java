@@ -112,12 +112,15 @@ public class FileTransferServer {
 	 * @throws BadPaddingException
 	 * @throws IllegalBlockSizeException
 	 */
-	private static void handleKeyGeneration(InputStream input, OutputStream out) throws IOException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
+	private static void handleKeyGeneration(InputStream input, OutputStream out)
+			throws IOException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
 		// Client sending us session key.
 		byte[] encryptedRandomBytesLength = new byte[4];
 		input.read(encryptedRandomBytesLength);
+
 		byte[] encryptedRandomBytes = new byte[FileTransferHelper.getInteger(encryptedRandomBytesLength)];
 		input.read(encryptedRandomBytes);
+
 		Cipher cipher = null;
 		try {
 			cipher = Cipher.getInstance(publicKeyAlgorithm);
@@ -125,6 +128,7 @@ public class FileTransferServer {
 			e.printStackTrace();
 			System.exit(1);
 		}
+
 		// Decrypt the random from the the client message using your private key.
 		cipher.init(Cipher.DECRYPT_MODE, privateKey);
 		byte[] sessionKeyBytes = cipher.doFinal(encryptedRandomBytes);
@@ -173,7 +177,8 @@ public class FileTransferServer {
 	 * @param out   The output stream of the server socket.
 	 * @throws IOException
 	 */
-	private static void handleClientDownload(InputStream input, OutputStream out) throws IOException {
+	private static void handleClientDownload(InputStream input, OutputStream out)
+			throws IOException {
 		// Client wants to download.
 		if (sessionKey == null) {
 			throw new RuntimeException("Session not established.");
@@ -260,7 +265,8 @@ public class FileTransferServer {
 	 * @throws InvalidKeyException
 	 * @throws IllegalBlockSizeException
 	 */
-	private static void handleClientUpload(InputStream input, OutputStream out, String ServerCertificateFilePath) throws IOException, BadPaddingException, InvalidKeyException, IllegalBlockSizeException {
+	private static void handleClientUpload(InputStream input, OutputStream out, String ServerCertificateFilePath)
+			throws IOException, BadPaddingException, InvalidKeyException, IllegalBlockSizeException {
 		// Read the file features first
 		byte[] fileFeaturesLength = new byte[4];
 		input.read(fileFeaturesLength);

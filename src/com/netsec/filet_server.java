@@ -15,6 +15,9 @@ import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.Arrays;
 
 public class filet_server {
+    public filet_server() {
+    }
+
     public static void main(String[] args) throws Exception {
 
         ServerSocket serverSocket = null;
@@ -126,15 +129,16 @@ public class filet_server {
             StringXORer xoRer = new StringXORer();
             String xorResult;
 
+
             while ((count = in.read(bytes)) > 0) {
 
-                System.out.println(new String (bytes));
+//                System.out.println(new String (bytes));
 
                 xorResult = xoRer.decode(new String (bytes),sessionKeyString);
                 bytes = xorResult.getBytes();
 
-                System.out.println(xorResult);
-                System.out.println(new String (bytes));
+//                System.out.println(xorResult);
+//                System.out.println(new String (bytes));
 
                 out.write(bytes, 0, bytes.length);
 
