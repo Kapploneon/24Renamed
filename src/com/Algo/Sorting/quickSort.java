@@ -65,7 +65,7 @@ public class quickSort {
         return i+1;
     }
 
-    private int randomized_partition(int[] localNumberArray, int p, int r){
+    public int randomized_partition(int[] localNumberArray, int p, int r){
         int randomPivot = p + (int)(Math.random()*( ( r - p ) + 1) );
         int dummy;
 
