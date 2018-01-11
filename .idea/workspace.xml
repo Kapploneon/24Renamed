@@ -3,13 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="82d39191-4534-44dc-ac1a-03c4ba2d9e4d" name="Default" comment="">
       <change beforePath="" afterPath="$USER_HOME$/Documents/GitHub/24Renamed/testingserverupload" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/com/Algo/ADT/redBlackTree.java" />
       <change beforePath="$USER_HOME$/Documents/GitHub/24Renamed/.idea/workspace.xml" afterPath="$USER_HOME$/Documents/GitHub/24Renamed/.idea/workspace.xml" />
       <change beforePath="$USER_HOME$/Documents/GitHub/24Renamed/src/com/java24hours/FileDemonstration.java" afterPath="$USER_HOME$/Documents/GitHub/24Renamed/src/com/java24hours/FileDemonstration.java" />
       <change beforePath="$USER_HOME$/Documents/GitHub/24Renamed/src/com/netsec/filet_server.java" afterPath="$USER_HOME$/Documents/GitHub/24Renamed/src/com/netsec/filet_server.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/TreeInput.txt" afterPath="$PROJECT_DIR$/TreeInput.txt" />
       <change beforePath="$PROJECT_DIR$/src/com/Algo/ADT/binarySearchTree.java" afterPath="$PROJECT_DIR$/src/com/Algo/ADT/binarySearchTree.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/Algo/ADT/redBlackTree.java" afterPath="$PROJECT_DIR$/src/com/Algo/ADT/redBlackTree.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/Algo/ADT/binarySearchTree.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="397">
-              <caret line="155" column="16" lean-forward="false" selection-start-line="155" selection-start-column="16" selection-end-line="155" selection-end-column="16" />
+              <caret line="206" column="0" lean-forward="true" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -75,8 +73,8 @@
       <file leaf-file-name="redBlackTree.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/Algo/ADT/redBlackTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="622">
-              <caret line="55" column="33" lean-forward="true" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
+            <state relative-caret-position="607">
+              <caret line="300" column="0" lean-forward="false" selection-start-line="300" selection-start-column="0" selection-end-line="300" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -597,7 +595,7 @@
       <workItem from="1515093997476" duration="13931000" />
       <workItem from="1515304766136" duration="6477000" />
       <workItem from="1515377617171" duration="83000" />
-      <workItem from="1515542100293" duration="20153000" />
+      <workItem from="1515542100293" duration="21032000" />
     </task>
     <task id="LOCAL-00001" summary="second attempt">
       <created>1510976078708</created>
@@ -652,7 +650,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152305000" />
+    <option name="totallyTimeSpent" value="153184000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -665,6 +663,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -675,7 +674,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1273585" sideWeight="0.5162162" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.119469024" sideWeight="0.48378378" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.3276699" sideWeight="0.49783784" order="2" side_tool="false" content_ui="tabs" x="2468" y="38" width="2323" height="1321" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.3276699" sideWeight="0.49783784" order="2" side_tool="false" content_ui="tabs" x="2468" y="38" width="2323" height="1321" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32953313" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33009708" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -687,7 +686,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22692725" sideWeight="0.5045662" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.39927185" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="2478" y="29" width="2323" height="1321" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.39927185" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="2478" y="29" width="2323" height="1321" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -825,12 +824,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/Algo/ADT/redBlackTree.java</url>
-          <line>254</line>
+          <line>306</line>
           <properties />
-          <option name="timeStamp" value="65" />
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/Algo/ADT/redBlackTree.java</url>
+          <line>292</line>
+          <properties />
+          <option name="timeStamp" value="68" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="66" />
+      <option name="time" value="69" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1262,8 +1267,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Algo/ADT/redBlackTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
-          <caret line="55" column="33" lean-forward="true" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
+        <state relative-caret-position="607">
+          <caret line="300" column="0" lean-forward="false" selection-start-line="300" selection-start-column="0" selection-end-line="300" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1273,7 +1278,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/Algo/ADT/binarySearchTree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="397">
-          <caret line="155" column="16" lean-forward="false" selection-start-line="155" selection-start-column="16" selection-end-line="155" selection-end-column="16" />
+          <caret line="206" column="0" lean-forward="true" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

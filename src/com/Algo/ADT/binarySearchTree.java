@@ -199,14 +199,14 @@ public class binarySearchTree {
     }
 
     public binaryTreeNode treeMinNode(binaryTreeNode x){
-        while (x.left != null){
+        while (x.left != null && x.left.keyValue != Integer.MIN_VALUE){
             x = x.left;
         }
         return x;
     }
 
     public int treeMax(binaryTreeNode x){
-        while (x.right != null){
+        while (x.right != null && x.right.keyValue != Integer.MIN_VALUE){
             x = x.right;
         }
         return x.keyValue;

@@ -261,11 +261,11 @@ public class redBlackTree {
                 }else {
                     if(zNode == zNode.parent.left){
                         zNode = zNode.parent;
-                        leftRotate(zNode);
+                        rightRotate(zNode);
                     }
                     zNode.parent.c = 'b';
                     zNode.parent.parent.c = 'r';
-                    rightRotate(zNode.parent.parent);
+                    leftRotate(zNode.parent.parent);
                 }
             }
         }
@@ -350,7 +350,7 @@ public class redBlackTree {
                 if(w.c == 'r'){
                     w.c = 'b';
                     x.parent.c = 'r';
-                    leftRotate(x.parent);
+                    rightRotate(x.parent);
                     w = x.parent.left;
                 }
                 if(w.right.c == 'b' && w.left.c == 'b'){
@@ -360,13 +360,13 @@ public class redBlackTree {
                     if(w.left.c == 'b'){
                         w.right.c = 'b';
                         w.c = 'r';
-                        rightRotate(w);
+                        leftRotate(w);
                         w = x.parent.left;
                     }
                     w.c = x.parent.c;
                     x.parent.c = 'b';
                     w.left.c = 'b';
-                    leftRotate(x.parent);
+                    rightRotate(x.parent);
                     x = root;
                 }
             }
