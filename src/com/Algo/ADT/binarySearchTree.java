@@ -17,8 +17,7 @@ public class binarySearchTree {
     private static binarySearchTree binarySearchTree = new binarySearchTree();
     private String treeLine = "";
     private int levels;
-    private int result;
-
+    public int result;
 
     public static void main(String[] arg){
         Scanner input = new Scanner(System.in);
@@ -150,10 +149,11 @@ public class binarySearchTree {
 
     }
 
-    private void InOrderTraversal(binaryTreeNode binaryTreeNode){
+    public void InOrderTraversal(binaryTreeNode binaryTreeNode){
         if(binaryTreeNode != null){
             InOrderTraversal(binaryTreeNode.left);
-            System.out.print(binaryTreeNode.keyValue + ", ");
+            if(binaryTreeNode.keyValue > Integer.MIN_VALUE)
+                System.out.print(binaryTreeNode.keyValue + ", ");
             InOrderTraversal(binaryTreeNode.right);
         }
     }
@@ -173,7 +173,7 @@ public class binarySearchTree {
         return false;
     }
 
-    private boolean iterativeTreeSearch(binaryTreeNode binaryTreeNode, int key){
+    public boolean iterativeTreeSearch(binaryTreeNode binaryTreeNode, int key){
         while(key != binaryTreeNode.keyValue){
             if (key < binaryTreeNode.keyValue && binaryTreeNode.left != null){
                 binaryTreeNode = binaryTreeNode.left;
@@ -191,28 +191,33 @@ public class binarySearchTree {
         return false;
     }
 
-    private int treeMin(binaryTreeNode x){
+    public int treeMin(binaryTreeNode x){
         while (x.left != null){
             x = x.left;
         }
         return x.keyValue;
     }
 
-    private binaryTreeNode treeMinNode(binaryTreeNode x){
+    public binaryTreeNode treeMinNode(binaryTreeNode x){
         while (x.left != null){
             x = x.left;
         }
         return x;
     }
 
-    private int treeMax(binaryTreeNode x){
+    public int treeMax(binaryTreeNode x){
         while (x.right != null){
             x = x.right;
         }
         return x.keyValue;
     }
 
-    private binaryTreeNode position(binaryTreeNode x, int key){
+    public binaryTreeNode position(binaryTreeNode x, int key){
+        /*
+        * Return:
+        *       Null if the key not found.
+        *       Pointer to the key value node.
+        * */
 
         if(x == null)
             return null;
@@ -236,7 +241,7 @@ public class binarySearchTree {
         return null;
     }
 
-    private int treeSuccessor(binaryTreeNode root, int key){
+    public int treeSuccessor(binaryTreeNode root, int key){
 
         // Find the position of key.
         binaryTreeNode x;
@@ -261,7 +266,7 @@ public class binarySearchTree {
             return Integer.MIN_VALUE;
     }
 
-    private int treePredecessor(binaryTreeNode root, int key){
+    public int treePredecessor(binaryTreeNode root, int key){
 
         // Find the position of key.
         binaryTreeNode x;
@@ -353,11 +358,13 @@ class binaryTreeNode{
     binaryTreeNode left;
     binaryTreeNode right;
     int keyValue;
+    char c;
 
     binaryTreeNode(){
         parent = null;
         left = null;
         right = null;
+        c = 'r';
     }
 
 }
