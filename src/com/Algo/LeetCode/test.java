@@ -6,11 +6,11 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.Algo.ADT;
+package com.Algo.LeetCode;
 
 class Solution {
 
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    private ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         int xInt = 0;
         int carry = 0;
         ListNode result = new ListNode(0);
