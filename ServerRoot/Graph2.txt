@@ -1,5 +1,0 @@
-# undirected connected graph
-a,b,c,d,e,f,g,h,i,j# Vertices
-
-# Edges
-b,h;a,i;d,i,j;c,e,f,g,i;d,f;d,e;d,h;a,g,i;b,c,d,h;c
